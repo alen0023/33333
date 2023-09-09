@@ -1,0 +1,12 @@
+import base64
+
+# 画像をBase64エンコードする
+with open("DSC_0111_p.jpg", "rb") as image:
+    encoded_string = base64.b64encode(image.read()).decode('utf-8')
+
+# エンコードされた画像をHTMLの<img>タグに埋め込む
+html_code = f'<img src="data:image/jpeg;base64,{encoded_string}" alt="Embedded Image" />'
+
+# このHTMLコードをファイルに保存
+with open("output.html", "w") as html_file:
+    html_file.write(html_code)
